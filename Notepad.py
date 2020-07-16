@@ -3,12 +3,13 @@ from tkinter import font
 from tkinter.filedialog import *
 import os
 from tkinter.messagebox import *
+import __main__ as main
 import sys
 #######################################################################################
 notepad = Tk()
 notepad.title('Notepad')
-
 OS = sys.platform
+File = main.__file__
 
 class app(Frame):
     def __init__(self):
@@ -17,19 +18,19 @@ class app(Frame):
 
         def newfile():
             if OS.startswith('win'):
-                os.popen('python Notepad.py')
+                os.popen('python %s' %File)
             if OS == 'linux':
-                os.popen('python3 Notepad.py')
+                os.popen('python3 %s' %File)
             else:
-                os.popen('python3 Notepad.py')
+                os.popen('python3 %s' %File)
 
         def newfile2(event):
             if OS.startswith('win'):
-                os.popen('python Notepad.py')
+                os.popen('python %s' % File)
             if OS == 'linux':
-                os.popen('python3 Notepad.py')
+                os.popen('python3 %s' % File)
             else:
-                os.popen('python3 Notepad.py')
+                os.popen('python3 %s' % File)
 
         def savefile():
             file = asksaveasfile(title='Save File', filetypes=(("text files", "*.txt"), ("all files", "*.*")))
